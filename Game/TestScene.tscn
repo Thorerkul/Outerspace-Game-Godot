@@ -1,10 +1,49 @@
-[gd_scene load_steps=2 format=3 uid="uid://fbkne3lmchkc"]
+[gd_scene load_steps=6 format=3 uid="uid://fbkne3lmchkc"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_1u4h5"]
+
+[sub_resource type="GDScript" id="GDScript_qe8lc"]
+script/source = "extends Sprite2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_26ibf"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_40jww"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g7f11"]
+size = Vector2(18.2543, 19.3687)
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(177, 143)
-scale = Vector2(168.5, 71.5)
+scale = Vector2(100, 150)
 texture = SubResource("PlaceholderTexture2D_1u4h5")
+script = SubResource("GDScript_qe8lc")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Sprite2D"]
+continuous_cd = 2
+can_sleep = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/RigidBody2D"]
+scale = Vector2(0.05, 0.05)
+shape = SubResource("RectangleShape2D_26ibf")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(577, 664.125)
+scale = Vector2(1191.25, 84.2502)
+texture = SubResource("PlaceholderTexture2D_40jww")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D2"]
+scale = Vector2(0.055, 0.055)
+shape = SubResource("RectangleShape2D_g7f11")
